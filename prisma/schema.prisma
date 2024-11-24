@@ -12,16 +12,18 @@ model Plant {
   taxonomicName   String         @db.VarChar(255)
   commonName      String         @db.VarChar(255)
   genus           Genus          @relation(fields: [genusId], references: [id])
-  genusId         String
+  genusId         String         @db.VarChar(255)
   plantCategory   PlantCategory? @relation(fields: [plantCategoryId], references: [id])
-  plantCategoryId String?
+  plantCategoryId String?        @db.VarChar(255)
   coldHardiness   Int
   soils           Soil[]
   lifeCycle       LifeCycle
   sunExposures    SunExposure[]
   waterNeed       WaterNeed
+  description     String
   pests           Pest[]
   diseases        Disease[]
+  imageUrl        String         @db.VarChar(255)
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
   published       Boolean        @default(false)
