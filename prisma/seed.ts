@@ -2,6 +2,9 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+const fakeDescription =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
 async function main() {
   console.log("Seeding database with predefined data...");
 
@@ -116,9 +119,11 @@ async function main() {
         lifeCycle: "BISANNUAL",
         sunExposures: { set: ["FULL_SUN"] },
         waterNeed: "MODERATE",
+        description: fakeDescription,
         published: true,
         pests: { connect: [{ id: pests[0].id }, { id: pests[1].id }] },
         diseases: { connect: [{ id: diseases[0].id }] },
+        imageUrl: "public/carotte.jpg",
       },
     }),
     prisma.plant.create({
@@ -132,9 +137,11 @@ async function main() {
         lifeCycle: "ANNUAL",
         sunExposures: { set: ["PARTIAL_SHADE", "FULL_SUN"] },
         waterNeed: "MODERATE",
+        description: fakeDescription,
         published: true,
         pests: { connect: [{ id: pests[0].id }] },
         diseases: { connect: [{ id: diseases[0].id }] },
+        imageUrl: "public/coriandre.jpg",
       },
     }),
     prisma.plant.create({
@@ -148,9 +155,11 @@ async function main() {
         lifeCycle: "ANNUAL",
         sunExposures: { set: ["FULL_SUN"] },
         waterNeed: "MODERATE",
+        description: fakeDescription,
         published: true,
         pests: { connect: [{ id: pests[0].id }] },
         diseases: { connect: [{ id: diseases[0].id }] },
+        imageUrl: "public/radis.jpg",
       },
     }),
     prisma.plant.create({
@@ -164,9 +173,11 @@ async function main() {
         lifeCycle: "ANNUAL",
         sunExposures: { set: ["PARTIAL_SHADE", "FULL_SUN"] },
         waterNeed: "MODERATE",
+        description: fakeDescription,
         published: true,
         pests: { connect: [{ id: pests[1].id }] },
         diseases: { connect: [{ id: diseases[1].id }] },
+        imageUrl: "public/romanesco.jpg",
       },
     }),
     prisma.plant.create({
@@ -180,9 +191,11 @@ async function main() {
         lifeCycle: "ANNUAL",
         sunExposures: { set: ["FULL_SUN"] },
         waterNeed: "HIGH",
+        description: fakeDescription,
         published: true,
         pests: { connect: [{ id: pests[1].id }] },
         diseases: { connect: [{ id: diseases[0].id }] },
+        imageUrl: "public/tomate.jpg",
       },
     }),
     prisma.plant.create({
@@ -196,9 +209,11 @@ async function main() {
         lifeCycle: "ANNUAL",
         sunExposures: { set: ["FULL_SUN"] },
         waterNeed: "MODERATE",
+        description: fakeDescription,
         published: true,
         pests: { connect: [{ id: pests[0].id }] },
         diseases: { connect: [{ id: diseases[1].id }] },
+        imageUrl: "public/poivron.jpg",
       },
     }),
     prisma.plant.create({
@@ -212,9 +227,11 @@ async function main() {
         lifeCycle: "PERENNIAL",
         sunExposures: { set: ["PARTIAL_SHADE", "FULL_SUN"] },
         waterNeed: "HIGH",
+        description: fakeDescription,
         published: true,
         pests: { connect: [{ id: pests[1].id }] },
         diseases: { connect: [{ id: diseases[0].id }] },
+        imageUrl: "public/fraisier.jpg",
       },
     }),
   ]);
